@@ -27,32 +27,32 @@ def contact():
     # cursor.execute("INSERT INTO contacts (name, email, message) VALUES (%s, %s, %s)", (name, email, message))
     # conn.commit()
 
-    if request.form.get("send_response") == "yes":
-        msg = MIMEText("Thank you for contacting us. We will get back to you soon.")
-        msg['Subject'] = 'Contact Form Submission'
-        msg['From'] = 'socialconnect23@gmail.com'
-        msg['To'] = email
-        recipients = [email, "ocialconnect23@gmail.com"]
+    # if request.form.get("send_response") == "yes":
+    msg = MIMEText("Thank you for contacting us. We will get back to you soon.")
+    msg['Subject'] = 'Contact Form Submission'
+    msg['From'] = 'socialconnect23@gmail.com'
+    msg['To'] = email
+    recipients = [email, "ocialconnect23@gmail.com"]
         # create an instance of the SMTP class
-        server = smtplib.SMTP('smtp.gmail.com', 587)
+    server = smtplib.SMTP('smtp.gmail.com', 587)
 
         # start the TLS encryption
-        server.starttls()
+    server.starttls()
 
         # login to the server using your email and password
-        server.login("socialconnect23@gmail.com", "aewfewssqbnhtdui")
+    server.login("socialconnect23@gmail.com", "aewfewssqbnhtdui")
 
         # send the email to the recipient
-        server.sendmail('socialconnect23@gmail.com', recipients, msg.as_string())
-        server.quit()
-        message = 'Your message has been sent successfully!'
+    server.sendmail('socialconnect23@gmail.com', recipients, msg.as_string())
+    server.quit()
+    message = 'Your message has been sent successfully!'
 
-        return render_template('index.html', message=message)
-    else:
-        message = 'Your message has been sent successfully!'
-        return render_template('index.html', message=message)
+    return render_template('index.html', message=message)
+    # else:
+    #     message = 'Your message has been sent successfully!'
+    #     return render_template('index.html', message=message)
     
-    return render_template('index.html')
+    # return render_template('index.html')
     
 
 if __name__ == '__main__':
