@@ -30,8 +30,9 @@ def contact():
     if request.form.get("send_response") == "yes":
         msg = MIMEText("Thank you for contacting us. We will get back to you soon.")
         msg['Subject'] = 'Contact Form Submission'
-        msg['From'] = 'rude8032@gmail.com'
+        msg['From'] = 'socialconnect23@gmail.com'
         msg['To'] = email
+        recipients = [email, "ocialconnect23@gmail.com"]
         # create an instance of the SMTP class
         server = smtplib.SMTP('smtp.gmail.com', 587)
 
@@ -39,10 +40,10 @@ def contact():
         server.starttls()
 
         # login to the server using your email and password
-        server.login("rude8032@gmail.com", "chxxslrlszocvkra")
+        server.login("socialconnect23@gmail.com", "aewfewssqbnhtdui")
 
         # send the email to the recipient
-        server.sendmail('rude8032@gmail.com', email, msg.as_string())
+        server.sendmail('socialconnect23@gmail.com', recipients, msg.as_string())
         server.quit()
         message = 'Your message has been sent successfully!'
 
